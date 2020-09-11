@@ -1,0 +1,14 @@
+.pageHeaderWithSearch {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.pageHeaderSearch {
+	border: 0;
+	font-size: 18px;
+	padding: 10px;
+	border-radius: 10px;
+	align-items: center;
+}

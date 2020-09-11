@@ -1,0 +1,22 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	background-color: #565961;
+}
+
+.logoRickAndMorty {
+	width: 300px;
+	height: 60px;
+}
+
+.navRickAndMorty {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-right: 100px;
+	font-size: 18px;
+	width: 600px;
+	height: 60px;
+	list-style-type: none;
+	color: #ffffff;
+}
