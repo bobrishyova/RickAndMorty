@@ -1,18 +1,13 @@
 import { FETCH_LOCATION } from './actionTypes'
+
 const url = 'https://rickandmortyapi.com/api/location/'
 
-export const fetchLocation = () => async dispatch => {
-	const response = await fetch(url)
+export const fetchLocation = (id) => async dispatch => {
+	const response = await fetch(`${url}${id}`)
 	const result = await response.json()
-	const sortedLocations = result.results.map((location) => ({
-		name: location.name,
-		type: location.type,
-		dimension: location.dimension,
-	}))
-
+	
 	dispatch({
 		type: FETCH_LOCATION,
-		locationsInfo: result.info,
-		locations: sortedLocations,
+		location: result,
 	})
 }

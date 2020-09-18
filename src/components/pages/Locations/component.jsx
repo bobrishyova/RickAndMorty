@@ -1,31 +1,38 @@
 import React, { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
+import qs from 'query-string'
 import PageHeader from '../../blocks/PageHeader'
 import LocationItem from '../../blocks/LocationItem'
-import { configItem } from './config'
 import Pagination from '../../blocks/Pagination'
 
 import './styles.css'
 
 const Locations = ({
-	getFetchLocation,
+	getFetchLocations,
 	locations,
+	locationsInfo,
 }) => {
-  // console.log("locations", locations)
+	const { search } = useLocation()
+
 	useEffect(() => {
-		getFetchLocation()
-	}, [getFetchLocation])
+		const page = +qs.parse(search).page
+		getFetchLocations(page || 1)
+	}, [getFetchLocations, search])
+
 	return (
 		<div className="headerLocations">
 			<PageHeader 
 				titleName="Locations"
 			/>
 			<div className="locationsInformation">
-				<p>Name</p>
-				<p>Type</p>
-				<p>Dimension</p>
+				<p className="nameLocation">Name</p>
+				<p className="dimensionLocation">Dimension</p>
+				<p className="typeLocation">Type</p>
 			</div>
-			<LocationItem config={configItem} />
-			<Pagination />
+			{locations.map((location) => (
+				<LocationItem key={location.id} location={location} />
+			))}
+			<Pagination totalPage={locationsInfo.pages}/>
 		</div>
 	)
 }

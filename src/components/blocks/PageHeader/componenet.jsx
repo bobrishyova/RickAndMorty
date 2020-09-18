@@ -6,13 +6,8 @@ const PageHeader = ({
 	titleName,
 }) => {
 	return (
-		<div className="pageHeaderWithSearch">
+		<div className="pageHeader">
 			<p>{titleName}</p>
-			<input 
-				type="text" 
-				placeholder="Search" 
-				className="pageHeaderSearch" 
-			/>
 		</div>
 	)
 }

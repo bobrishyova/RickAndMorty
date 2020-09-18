@@ -15,3 +15,26 @@
 	padding: 10px 0 10px 0;
 	border-bottom: 4px double #ffffff;
 }
+
+.nameEpisode {
+	width: 309px;
+}
+
+.airDateEpisode,
+.episodeNumber {
+	width: 309px;
+	text-align: center;
+}
+
+@media (max-width: 700px) {
+	.episodesInformation {
+		font-size: 12px;
+	}
+}
+
+@media (max-width: 500px) {
+	.headerEpisodes {
+		width: 95%;
+		padding: 10px 20px;
+	}
+}

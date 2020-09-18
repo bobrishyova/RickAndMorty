@@ -1,15 +1,34 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import './styles.css'
 
 const LocationItem = ({
-	config = [],
+	location = {},
 }) => {
 	return (
 		<div className="divWithLocationInformation">
-			{config.map((item) => (
-				<p key={item.id}>{item.name}</p>
-			))}
+			<Link 
+				className="divLocationName" 
+				style={{textDecoration: "none", color: "#ffffff"}} 
+				to={`/location/${location.id}`}
+			>
+				<p className="itemLocation">{location.name}</p>
+			</Link>
+			<Link 
+				className="divLocationItem" 
+				style={{textDecoration: "none", color: "#ffffff"}} 
+				to={`/location/${location.id}`}
+			>
+				<p className="itemLocation">{location.dimension}</p>
+			</Link>
+			<Link 
+				className="divLocationItem" 
+				style={{textDecoration: "none", color: "#ffffff"}} 
+				to={`/location/${location.id}`}
+			>
+				<p className="itemLocation">{location.type}</p>
+			</Link>
 		</div>
 	)
 }

@@ -1,0 +1,29 @@
+.headerEpisodeInfo {
+	width: 40%;
+	margin: 0 auto;
+	background-color: #565961;
+	color: #ffffff;
+	border-radius: 10px;
+	margin-top: 30px;
+	font-size: 18px;
+	padding: 40px;
+}
+
+.divWithNameEpisode {
+	font-size: 28px;
+}
+
+.divWithAirDateEpisode {
+	font-size: 22px;
+	margin-top: 15px;
+}
+
+.divWithEpisode  {
+	font-size: 22px;
+	margin: 15px 0 5px 0; 
+}
+
+.characters {
+	font-size: 22px;
+	margin-bottom: 5px;
+}

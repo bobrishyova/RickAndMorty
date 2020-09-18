@@ -1,19 +1,23 @@
 import React, { useEffect } from 'react'
+import qs from 'query-string'
+import { useLocation } from 'react-router-dom'
 import CharacterItem from '../../blocks/CharacterItem'
 import PageHeader from '../../blocks/PageHeader'
-import { configItem } from './config'
 import Pagination from '../../blocks/Pagination'
 
 import './styles.css'
 
 const Characters = ({
-	getFetchCharacter,
+	getFetchCharacters,
 	characters,
+	charactersInfo,
 }) => {
-  // console.log("characters", characters)
+	const { search } = useLocation()
+
 	useEffect(() => {
-		getFetchCharacter()
-	}, [getFetchCharacter])
+		const page = +qs.parse(search).page
+		getFetchCharacters(page || 1)
+	}, [getFetchCharacters, search])
 
 	return (
 		<div className="headerCharacters">
@@ -21,13 +25,17 @@ const Characters = ({
 				titleName='Characters'
 			/>
 			<div className="characterInformation">
-				<p>Name</p>
-				<p>Status</p>
-				<p>Species</p>
-				<p>Gender</p>
+				<p className="nameCharacter">Name</p>
+				<p className="statusCharacter">Status</p>
+				<p className="speciesCharacter">Species</p>
+				<p className="genderCharacter">Gender</p>
 			</div>
-			<CharacterItem config={configItem} />
-			<Pagination />
+			{characters.map((character) => (
+				<CharacterItem key={character.id} character={character} />
+			))}
+			<Pagination
+				totalPage={charactersInfo.pages}
+			/>
 		</div>
 	)
 }
