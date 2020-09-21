@@ -58,11 +58,15 @@
 	}
 
 	.infoCharacter {
-		font-size: 13px;
+		font-size: 14px;
 	}
 
 	.imgCharacterWithEpisodes p {
-		font-size: 13px;
+		font-size: 14px;
+	}
+
+	.infoAboutСharacter {
+		margin-left: 10px;
 	}
 }
 
@@ -84,5 +88,46 @@
 
 	.headerСharacterInfo {
 		width: 95%;
+	}
+
+	.menuBox {
+		width: 175px;
+	}
+}
+
+@media (max-width: 350px) {
+	.imgCharacter {
+		width: 100px;
+		height: 100px;
+	}
+
+	.infoAboutСharacter {
+		height: 100px;
+	}
+
+	.nameСharacter {
+		font-size: 16px;
+	}
+
+	.headerСharacterInfo {
+		padding: 15px;
+	}
+
+	.infoCharacter {
+		font-size: 13px;
+	}
+
+	.imgCharacterWithEpisodes p {
+		font-size: 13px;
+	}
+}
+
+@media (max-width: 360px) {
+	.menuBox {
+		width: 155px;
+	}
+
+	.menuItem {
+		font-size: 16px;
 	}
 }

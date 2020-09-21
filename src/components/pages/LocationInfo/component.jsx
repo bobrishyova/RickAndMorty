@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useCallback } from 'react'
 import { useParams } from 'react-router-dom'
-import customArrayUrlParse from '../../../helpers/customArrayUrlParse'
+import customArrayUrlParse from '../../../utils/customArrayUrlParse'
 
 import './styles.css'
 
@@ -38,7 +38,7 @@ const LocationInfo = ({
 			<div className="divWithNameLocation">{location.name}</div>
 			<div className="divWithTypeLocation">Type: {location.type}</div>
 			<p className="residents">Residents:</p>
-			{renderResident}
+			<p>{renderResident}</p>
 		</div>
 	)
 }

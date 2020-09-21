@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback, useMemo } from 'react'
 import { useParams } from 'react-router-dom'
-import customArrayUrlParse from '../../../helpers/customArrayUrlParse'
+import customArrayUrlParse from '../../../utils/customArrayUrlParse'
 
 import './styles.css'
 
@@ -39,7 +39,7 @@ const EpisodeInfo = ({
 			<p className="divWithAirDateEpisode">Air Date: {episode.air_date}</p>
 			<p className="divWithEpisode">Episode: {episode.episode}</p>
 			<p className="characters">Сharacters:</p>
-			{renderCharacter}
+			<p className="allCharacters">{renderCharacter}</p>
 		</div>
 	)
 }

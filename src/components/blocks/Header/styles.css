@@ -34,6 +34,7 @@
 	.logoRickAndMorty {
 		display: none;
 	}
+	
 	.title {
 		display: flex;
 		justify-content: center;
@@ -57,10 +58,15 @@
 
 	#menuToggle {
 		opacity: 0;
+		display: none;
 	}
 	
 	#menuToggle:checked ~ .menuBtn > span {
 		transform: rotate(45deg);
+	}
+
+	#menuToggle:checked ~ .menuBtn {
+		position: fixed;
 	}
 
 	#menuToggle:checked ~ .menuBtn > span::before {
@@ -83,7 +89,7 @@
 	.menuBtn {
 		display: flex;
 		align-items: center;
-		position: fixed;
+		position: absolute;
 		top: 20px;
 		right: 20px;
 		width: 26px;
@@ -97,12 +103,9 @@
 	.menuBtn > span::after {
 		display: block;
 		position: absolute;
-	
 		width: 100%;
 		height: 2px;
-	
 		background-color: #ffffff;
-	
 		transition-duration: .25s;
 	}
 

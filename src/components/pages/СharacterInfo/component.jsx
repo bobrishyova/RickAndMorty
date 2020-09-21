@@ -1,7 +1,7 @@
 import React, { useEffect, useCallback, useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 import Moment from 'react-moment'
-import customArrayUrlParse from '../../../helpers/customArrayUrlParse'
+import customArrayUrlParse from '../../../utils/customArrayUrlParse'
 
 import './styles.css'
 

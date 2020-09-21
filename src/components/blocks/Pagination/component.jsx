@@ -3,6 +3,7 @@ import qs from 'query-string'
 import { useLocation, useHistory } from 'react-router-dom'
 
 import './styles.css'
+import { now } from 'moment'
 
 const Pagination = ({
 	totalPage,
@@ -32,33 +33,73 @@ const Pagination = ({
 		}
 		if (totalPage <= 4) {
 			for (let i = 1; i <= totalPage; i++) {
-				newArrayPages.push(i)
+				newArrayPages.push({
+					key: `${i}`,
+					value: i,
+				})
 			}
 			return newArrayPages
 		}
 		if (currentPage <= 3) {
 			const forCondition = currentPage === 1 ? 2 : 1
 			for (let i = 1; i <= currentPage + forCondition; i++) {
-				newArrayPages.push(i)
+				newArrayPages.push({
+					key: `${i}`,
+					value: i,
+				})
 			}
-			newArrayPages.push('...', totalPage)
+			newArrayPages.push({
+				key: 'rightDots',
+				value: '...',
+			}, {
+				key: `${totalPage}`,
+				value: totalPage,
+			})
 			return newArrayPages
 		}
 		if (currentPage >= totalPage - 2) {
-			newArrayPages.push(1, '...')
+			newArrayPages.push({
+				key: '1',
+				value: 1,
+			}, {
+				key: 'leftDots',
+				value: '...',
+			})
 			for (let i = currentPage - 1; i <= totalPage; i++) {
-				newArrayPages.push(i)
+				newArrayPages.push({
+					key: `${i}`,
+					value: i,
+				})
 			}
 			return newArrayPages
 		}
 		if (3 < currentPage < totalPage - 2) {
-			newArrayPages.push(1, '...', currentPage - 1, currentPage, currentPage + 1, '...', totalPage)
+			newArrayPages.push({
+				key: '1',
+				value: 1,
+			}, {
+				key: 'leftDots',
+				value: '...',
+			}, {
+				key: `${currentPage - 1}`,
+				value: currentPage - 1,
+			}, {
+				key: `${currentPage}`,
+				value: currentPage,
+			}, {
+				key: `${currentPage + 1}`,
+				value: currentPage + 1,
+			}, {
+				key: 'rightDots',
+				value: '...',
+			}, {
+				key: `${totalPage}`,
+				value: totalPage,
+			})
 			return newArrayPages
 		}
 		return []
-	}
-)
-
+	})
 	return (
 		<div className="divWithPagination">
 			<div
@@ -69,12 +110,12 @@ const Pagination = ({
 			</div>
 			{createPagination().map((pagination) => (
 				<div 
-					// key={pagination.toString()} 
-					onClick={handleSetCurrentPage(pagination)}
-					className={`divWithPage ${currentPage === pagination ? "selected" : ''} 
-					${pagination === '...' ? "threeDotsStyle" : ''} `}
+					key={pagination.key} 
+					onClick={handleSetCurrentPage(pagination.value)}
+					className={`divWithPage ${currentPage === pagination.value ? "selected" : ''} 
+					${pagination.value === '...' ? "threeDotsStyle": ''} `}
 				>
-					{pagination}
+					{pagination.value}
 				</div>
 			))}
 			<div 

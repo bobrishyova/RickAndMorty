@@ -22,3 +22,38 @@
 	font-size: 22px;
 	margin-bottom: 5px;
 }
+
+@media (max-width: 1000px) {
+	.headerLocationInfo {
+		width: 60%;
+	}
+}
+
+@media (max-width: 660px) {
+	.headerLocationInfo {
+		width: 80%;
+	}
+
+	.divWithNameLocation {
+		font-size: 20px;
+	}
+
+	.divWithTypeLocation {
+		font-size: 16px;
+	}
+
+	.headerLocationInfo p {
+		font-size: 16px;
+	}
+}
+
+@media (max-width: 400px) {
+	.headerLocationInfo {
+		width: 95%;
+		padding: 20px;
+	}
+	
+	.divWithNameLocation {
+		font-size: 18px;
+	}
+}
